@@ -1,8 +1,9 @@
 import friends from '../../data/friends.json';
 import PropTypes from 'prop-types';
 import styles from './FriendListItem.module.css';
+import { checkOnlineStatus } from '../../utils';
 
-const FriendListItem = ({ avatar, name, isOnline, id } = friends) => {
+const FriendListItem = ({} = friends) => {
   return (
     <>
       {friends.map(friend => (
@@ -34,13 +35,5 @@ FriendListItem.propTypes = {
     })
   ),
 };
-
-function checkOnlineStatus(status) {
-  if (status === true) {
-    return 'green';
-  } else {
-    return 'red';
-  }
-}
 
 export default FriendListItem;

@@ -1,13 +1,12 @@
 import data from '../../data/data.json';
 import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
-import { getRandomHexColor } from '../../utils/getRandomColor';
+import { getRandomHexColor, getItemWidth } from '../../utils';
 
-const Statistics = ({ title }, { id, label, percentage } = data) => {
+const Statistics = ({ title }, {} = data) => {
   return (
     <section className={styles.statistics}>
       {title && <h2 className={styles.title}>{title}</h2>}
-
       <ul className={styles.statList}>
         {data.map(el => (
           <li
@@ -15,7 +14,7 @@ const Statistics = ({ title }, { id, label, percentage } = data) => {
             key={el.id}
             style={{
               backgroundColor: getRandomHexColor(),
-              width: getItemWidth(),
+              width: getItemWidth(data),
             }}
           >
             <span className={styles.label}>{el.label}</span>
@@ -37,9 +36,5 @@ Statistics.propTypes = {
     })
   ),
 };
-
-function getItemWidth() {
-  return `${100 / data.length}%`;
-}
 
 export default Statistics;
