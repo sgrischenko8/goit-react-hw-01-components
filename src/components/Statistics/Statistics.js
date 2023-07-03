@@ -1,30 +1,45 @@
 import data from '../../data/data.json';
+import PropTypes from 'prop-types';
+import styles from './Statistics.module.css';
+import { getRandomHexColor } from '../../utils/getRandomColor';
 
-const Statistics = ({ id, label, percenage } = data[0]) => {
+const Statistics = ({ title }, { id, label, percentage } = data) => {
   return (
-    <section class="statistics">
-      <h2 class="title">{data[0].id}</h2>
+    <section className={styles.statistics}>
+      {title && <h2 className={styles.title}>{title}</h2>}
 
-      <ul class="stat-list">
-        <li class="item">
-          <span class="label">{data[0].label}</span>
-          <span class="percentage">{data[0].percenage}%</span>
-        </li>
-        <li class="item">
-          <span class="label">{data[1].label}</span>
-          <span class="percentage">{data[1].percenage}%</span>
-        </li>
-        <li class="item">
-          <span class="label">{data[2].label}</span>
-          <span class="percentage">{data[2].percenage}%</span>
-        </li>
-        <li class="item">
-          <span class="label">{data[3].label}</span>
-          <span class="percentage">{data[3].percenage}%</span>
-        </li>
+      <ul className={styles.statList}>
+        {data.map(el => (
+          <li
+            className={styles.item}
+            key={el.id}
+            style={{
+              backgroundColor: getRandomHexColor(),
+              width: getItemWidth(),
+            }}
+          >
+            <span className={styles.label}>{el.label}</span>
+            <span className={styles.percentage}>{el.percentage}%</span>
+          </li>
+        ))}
       </ul>
     </section>
   );
 };
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+};
+
+function getItemWidth() {
+  return `${100 / data.length}%`;
+}
 
 export default Statistics;

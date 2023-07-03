@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  width: 512px;
+  padding: 0.1em 0.5em;
+  border: 1px solid transparent;
+  box-shadow: 1px 1px 1px 1px #9494b833, -1px 1px 1px 1px #9494b833;
+  background-color: #fff;
+}
+
+.status {
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 3em;
+  background-color: burlywood;
+  border-radius: 0.2em;
+}
+
+.name {
+  font-weight: 500;
+}
