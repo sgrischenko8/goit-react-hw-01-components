@@ -1,20 +1,19 @@
-import data from '../../data/data.json';
 import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
 import { getRandomHexColor, getItemWidth } from '../../utils';
 
-const Statistics = ({ title }, {} = data) => {
+const Statistics = ({ title, stats }) => {
   return (
     <section className={styles.statistics}>
       {title && <h2 className={styles.title}>{title}</h2>}
       <ul className={styles.statList}>
-        {data.map(el => (
+        {stats.map(el => (
           <li
             className={styles.item}
             key={el.id}
             style={{
               backgroundColor: getRandomHexColor(),
-              width: getItemWidth(data),
+              width: getItemWidth(stats),
             }}
           >
             <span className={styles.label}>{el.label}</span>
@@ -34,7 +33,7 @@ Statistics.propTypes = {
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default Statistics;
