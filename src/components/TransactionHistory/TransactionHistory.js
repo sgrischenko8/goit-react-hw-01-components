@@ -14,11 +14,11 @@ const TransactionHistory = ({ items }) => {
       </thead>
 
       <tbody>
-        {transactions.map(transaction => (
-          <tr key={transaction.id}>
-            <td>{transaction.type}</td>
-            <td>{transaction.amount}</td>
-            <td>{transaction.currency}</td>
+        {items.map(transaction => (
+          <tr key={item.id}>
+            <td>{item.type}</td>
+            <td>{item.amount}</td>
+            <td>{item.currency}</td>
           </tr>
         ))}
       </tbody>
@@ -27,14 +27,14 @@ const TransactionHistory = ({ items }) => {
 };
 
 TransactionHistory.propTypes = {
-  friends: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
       amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default TransactionHistory;
