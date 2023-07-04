@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
 import { getRandomHexColor, getItemWidth } from '../../utils';
 
-const Statistics = ({ title }, {} = data) => {
+const Statistics = ({ title }, {data}) => {
   return (
     <section className={styles.statistics}>
       {title && <h2 className={styles.title}>{title}</h2>}
