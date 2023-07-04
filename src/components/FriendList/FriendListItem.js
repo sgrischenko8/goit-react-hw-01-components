@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './FriendListItem.module.css';
 import { checkOnlineStatus } from '../../utils';
 
-const FriendListItem = ({} = friends) => {
+const FriendListItem = ({friends}) => {
   return (
     <>
       {friends.map(friend => (
