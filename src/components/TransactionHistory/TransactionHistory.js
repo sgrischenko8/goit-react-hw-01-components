@@ -2,7 +2,7 @@ import transactions from '../../data/transactions.json';
 import PropTypes from 'prop-types';
 import styles from './TransactionHistory.module.css';
 
-const TransactionHistory = ({transactions} = transactions) => {
+const TransactionHistory = ({ transactions } = transactions) => {
   return (
     <table className={styles.transactionHistory}>
       <thead>
